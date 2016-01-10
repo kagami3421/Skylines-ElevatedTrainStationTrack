@@ -64,12 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Meshes\TTNR.obj" />
-    <None Include="Meshes\TTNR_LOD.obj" />
-    <None Include="Meshes\TTNR_Node_LOD.obj" />
+    <Content Include="lib\ObjUnity3D.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lib\ObjUnity3D.dll" />
+    <None Include="Meshes\bridgev2.obj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
