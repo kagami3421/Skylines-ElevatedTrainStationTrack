@@ -11,8 +11,8 @@ namespace OneWayTrainTrack
             {
                 var ai = arg.GetComponent<TrainTrackAI>();
                 CreatePrefab("Oneway Train Track Tunnel", "Train Track Tunnel", SetupOneWayPrefabAction().Chain(arg1 => ai.m_tunnelInfo = arg1));
-                CreatePrefab("Oneway Train Track Bridge", "Train Track Bridge", SetupOneWayPrefabAction().Chain(arg2 => ai.m_bridgeInfo = arg));
-                CreatePrefab("Oneway Train Track Elevated", "Train Track Elevated", SetupOneWayPrefabAction().Chain(arg3 => ai.m_elevatedInfo = arg));
+                CreatePrefab("Oneway Train Track Bridge", "Train Track Bridge", SetupOneWayPrefabAction().Chain(arg2 => ai.m_bridgeInfo = arg2));
+                CreatePrefab("Oneway Train Track Elevated", "Train Track Elevated", SetupOneWayPrefabAction().Chain(arg3 => ai.m_elevatedInfo = arg3));
                 CreatePrefab("Oneway Train Track Slope", "Train Track Slope", SetupOneWayPrefabAction().Chain(arg4 => ai.m_slopeInfo = arg4));
             }));
         }
