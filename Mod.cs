@@ -5,8 +5,8 @@ namespace OneWayTrainTrack
 {
     public class Mod : IUserMod
     {
-        public string Name => "One-Way Train Track";
+        public string Name => "One-Way Double Tracks";
 
-        public string Description => "Provides a one-way train track";
+        public string Description => "Provides one-way double tracks";
     }
 }
