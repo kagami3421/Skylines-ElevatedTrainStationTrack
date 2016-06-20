@@ -1,7 +1,7 @@
 ﻿using ICities;
 using UnityEngine;
 
-namespace OneWayTrainTrack
+namespace TramStationTracks
 {
     public class LoadingExtension : LoadingExtensionBase
     {
@@ -13,13 +13,9 @@ namespace OneWayTrainTrack
 
             if (Container == null)
             {
-                Container = new GameObject("OneWayTrainTrack").AddComponent<Initializer>();
+                Container = new GameObject("TramStationTrack").AddComponent<Initializer>();
             }
-            Util.AddLocale("NET", "Oneway Train Track", "One-way Train Track", "One-way Train Track");
-            Util.AddLocale("NET", "Oneway Train Track Bridge", "One-way Train Track ", "One-way Train Track");
-            Util.AddLocale("NET", "Oneway Train Track Elevated", "One-way Train Track", "One-way Train Track");
-            Util.AddLocale("NET", "Oneway Train Track Tunnel", "One-way Train Track", "One-way Train Track");
-            Util.AddLocale("NET", "Oneway Train Track slope", "One-way Train Track", "One-way Train Track");
+            Util.AddLocale("NET", "Tram Station Track", "Tram Station Track", "Tram Station Track");
         }
 
         public override void OnReleased()

@@ -9,7 +9,7 @@ using ICities;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace OneWayTrainTrack
+namespace TramStationTracks
 {
     public static class Util
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace OneWayTrainTrack
+namespace TramStationTracks
 {
     public abstract class AbstractInitializer : MonoBehaviour
     {
@@ -36,11 +36,8 @@ namespace OneWayTrainTrack
             }
             try
             {
-                var parent = GameObject.Find(SimulationManager.instance.m_metaData.m_environment + " Collections");
-                foreach (var t in from Transform t in parent.transform where t.name == "Public Transport" select t)
-                {
-                    t.gameObject.GetComponent<NetCollection>();
-                }
+                var parent = GameObject.Find("Expansion 2");
+                parent.GetComponent<NetCollection>();
             }
             catch (Exception)
             {

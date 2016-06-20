@@ -7,8 +7,8 @@
     <ProjectGuid>{A42C9F60-7A15-48B1-86CB-CF5EEAA72D98}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OneWayTrainTrack</RootNamespace>
-    <AssemblyName>OneWayTrainTrack</AssemblyName>
+    <RootNamespace>TramStationTracks</RootNamespace>
+    <AssemblyName>TramStationTracks</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

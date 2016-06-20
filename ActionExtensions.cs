@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OneWayTrainTrack
+namespace TramStationTracks
 {
     public static class ActionExtensions
     {

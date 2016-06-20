@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Linq;
 
-namespace OneWayTrainTrack
+namespace TramStationTracks
 {
     public class Initializer : AbstractInitializer
     {
         protected override void InitializeImpl()
         {
-            CreatePrefab("Oneway Train Track", "Train Track", SetupOneWayPrefabAction().Chain(arg =>
-            {
-                var ai = arg.GetComponent<TrainTrackAI>();
-                CreatePrefab("Oneway Train Track Tunnel", "Train Track Tunnel", SetupOneWayPrefabAction().Chain(arg1 => ai.m_tunnelInfo = arg1));
-                CreatePrefab("Oneway Train Track Bridge", "Train Track Bridge", SetupOneWayPrefabAction().Chain(arg2 => ai.m_bridgeInfo = arg2));
-                CreatePrefab("Oneway Train Track Elevated", "Train Track Elevated", SetupOneWayPrefabAction().Chain(arg3 => ai.m_elevatedInfo = arg3));
-                CreatePrefab("Oneway Train Track Slope", "Train Track Slope", SetupOneWayPrefabAction().Chain(arg4 => ai.m_slopeInfo = arg4));
-            }));
+            CreatePrefab("Tram Station Track", "Tram Track", SetupTramStationTrackAction()
+                .Chain(Modifiers.UpdatePedestrianLanes)
+                .Chain(Modifiers.RemoveStreetLights));
         }
 
-        private static Action<NetInfo> SetupOneWayPrefabAction()
+        private static Action<NetInfo> SetupTramStationTrackAction()
         {
             return newPrefab =>
             {
-                foreach (var lane in newPrefab.m_lanes.Where(lane => lane.m_direction == NetInfo.Direction.Backward))
-                {
-                    lane.m_direction = NetInfo.Direction.None;
-                }
-                newPrefab.m_hasBackwardVehicleLanes = false;
+                newPrefab.GetComponent<RoadAI>().m_bridgeInfo = null;
+                newPrefab.GetComponent<RoadAI>().m_elevatedInfo = null;
+                newPrefab.GetComponent<RoadAI>().m_slopeInfo = null;
+                newPrefab.GetComponent<RoadAI>().m_tunnelInfo = null;
+                newPrefab.m_flattenTerrain = true;
+                newPrefab.m_followTerrain = false;
+                newPrefab.m_availableIn = ItemClass.Availability.GameAndAsset;
+                newPrefab.m_snapBuildingNodes = false;
+                newPrefab.m_placementStyle = ItemClass.Placement.Procedural;
+                newPrefab.m_isCustomContent = true;
+                newPrefab.m_dlcRequired = SteamHelper.DLC_BitMask.SnowFallDLC;
             };
         }
     }

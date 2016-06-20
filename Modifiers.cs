@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 
-namespace OneWayTrainTrack
+namespace TramStationTracks
 {
     public static class Modifiers
     {
-        public static void RemoveElectricityPoles(NetInfo prefab)
+        public static void RemoveStreetLights(NetInfo prefab)
         {
             if (prefab == null || prefab.m_lanes == null)
             {
@@ -29,24 +30,13 @@ namespace OneWayTrainTrack
                                where prop != null
                                let mProp = prop.m_prop
                                where mProp != null
-                               where mProp.name != "RailwayPowerline"
+                               where !mProp.name.Contains("Light")
                                select prop).ToArray()
                 };
             }
         }
 
-        public static void CreatePavement(NetInfo prefab)
-        {
-            if (prefab == null)
-            {
-                return;
-            }
-            prefab.m_createGravel = false;
-            prefab.m_createRuining = false;
-            prefab.m_createPavement = true;
-        }
-
-        public static void MakePedestrianLanesNarrow(NetInfo prefab)
+        public static void UpdatePedestrianLanes(NetInfo prefab)
         {
             if (prefab == null || prefab.m_lanes == null)
             {
@@ -54,8 +44,11 @@ namespace OneWayTrainTrack
             }
             foreach (var lane in prefab.m_lanes.Where(lane => lane != null && lane.m_laneType == NetInfo.LaneType.Pedestrian))
             {
-                lane.m_width = 2;
-                lane.m_position = Math.Sign(lane.m_position) * (4 + .5f * lane.m_width);
+                lane.m_verticalOffset = 0.60f;
+                lane.m_allowConnect = true;
+                lane.m_useTerrainHeight = false;
+                lane.m_direction = NetInfo.Direction.AvoidForward;
+                lane.m_finalDirection = NetInfo.Direction.AvoidForward;
             }
         }
     }

@@ -1,12 +1,12 @@
 ﻿using ICities;
 using UnityEngine;
 
-namespace OneWayTrainTrack
+namespace TramStationTracks
 {
     public class Mod : IUserMod
     {
-        public string Name => "One-Way Double Tracks";
+        public string Name => "Tram Station Track";
 
-        public string Description => "Provides one-way double tracks";
+        public string Description => "Provides tram station track";
     }
 }
