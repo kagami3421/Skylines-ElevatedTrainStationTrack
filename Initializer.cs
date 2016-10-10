@@ -9,7 +9,8 @@ namespace TramStationTracks
         {
             CreatePrefab("Tram Station Track", "Tram Track", SetupTramStationTrackAction()
                 .Chain(Modifiers.UpdatePedestrianLanes)
-                .Chain(Modifiers.RemoveStreetLights));
+                .Chain(Modifiers.RemoveStreetLights)
+                .Chain(Modifiers.RemoveTramStopAndPoles));
         }
 
         private static Action<NetInfo> SetupTramStationTrackAction()
